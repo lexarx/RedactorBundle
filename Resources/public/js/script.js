@@ -18,6 +18,13 @@ $(document).ready(function() {
                 config[callbackName] = getFunctionByName(config[callbackName], window);
             }
         }
+		if (config.buttonsCustom) {
+			for (var i in config.buttonsCustom) {
+				if (config.buttonsCustom[i] && config.buttonsCustom[i].callback)  {
+					config.buttonsCustom[i].callback = getFunctionByName(config.buttonsCustom[i].callback, window);
+				}
+			}
+		}
     };
 
     for (var redactorId in configRedactor) {
