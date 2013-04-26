@@ -20,8 +20,19 @@ $(document).ready(function() {
         }
 		if (config.buttonsCustom) {
 			for (var i in config.buttonsCustom) {
-				if (config.buttonsCustom[i] && config.buttonsCustom[i].callback)  {
-					config.buttonsCustom[i].callback = getFunctionByName(config.buttonsCustom[i].callback, window);
+				if (config.buttonsCustom[i])  {
+					var button = config.buttonsCustom[i];
+					if (button.callback) {
+						button.callback = getFunctionByName(button.callback, window);
+					}
+					if (button.dropdown) {
+						for (var j in button.dropdown) {
+							var item = button.dropdown[j];
+							if (item.callback) {
+								item.callback = getFunctionByName(item.callback, window);
+							}
+						}
+					}
 				}
 			}
 		}
