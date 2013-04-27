@@ -33,6 +33,12 @@ $(document).ready(function() {
 							}
 						}
 					}
+					if (button.configureCallback) {
+						var configureCallback = getFunctionByName(button.configureCallback, window);
+						if (configureCallback) {
+							configureCallback(button);
+						}
+					}
 				}
 			}
 		}

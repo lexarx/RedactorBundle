@@ -133,6 +133,7 @@ class Configuration implements ConfigurationInterface
 												->end()
 											->end()
 										->end()
+										->scalarNode('configureCallback')->end()
 									->end()
                                 ->end()
                             ->end()
