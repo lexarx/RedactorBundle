@@ -44,12 +44,13 @@ $(document).ready(function() {
 		}
     };
 
-    for (var redactorId in configRedactor) {
-        var config = configRedactor[redactorId];
-        prepareConfig(config);
-        $("#" + redactorId).redactor(config);
-    }
-
+	if (window.configRedactor !== undefined) {
+		for (var redactorId in configRedactor) {
+			var config = configRedactor[redactorId];
+			prepareConfig(config);
+			$("#" + redactorId).redactor(config);
+		}
+	}
 });
 
 window.redactorErrorUploadFile = function(obj, json)
